@@ -1,0 +1,57 @@
+{
+    "name": "beyondcode/laravel-server-timing",
+    "description": "Add Server-Timing header information from within your Laravel apps.",
+    "keywords": [
+        "beyondcode",
+        "laravel-server-timing"
+    ],
+    "homepage": "https://github.com/beyondcode/laravel-server-timing",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcel Pociot",
+            "email": "marcel@beyondco.de",
+            "homepage": "https://beyondcode.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "illuminate/support": "5.8.*|^6.0|^7.0",
+        "symfony/stopwatch": "^4.0|^5.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.6",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "BeyondCode\\ServerTiming\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BeyondCode\\ServerTiming\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "BeyondCode\\ServerTiming\\ServerTimingServiceProvider"
+            ],
+            "aliases": {
+                "Stopwatch": "BeyondCode\\ServerTiming\\Facades\\ServerTiming"
+            }
+        }
+    }
+}
