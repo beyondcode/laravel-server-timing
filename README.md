@@ -28,7 +28,7 @@ By default, the middleware measures only three things, to keep it as light-weigh
 
 ## Adding additional measurements
 
-If you want to provide additional measurements, you can use the start and stop methods:
+If you want to provide additional measurements, you can use the start and stop methods. If you do not explicitly stop a measured event, the event will automatically be stopped once the middleware receives your response. This can be useful if you want to measure the time your Blade views take to compile.
 
 ```php
 ServerTiming::start('Running expensive task');
