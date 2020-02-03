@@ -29,7 +29,7 @@ class ServerTimingServiceProvider extends ServiceProvider
     protected function registerPublishing()
     {
         $this->publishes([
-            __DIR__.'/../config/config.php' => config_path('timing.php'),
+            __DIR__.'/config/config.php' => config_path('timing.php'),
         ], 'server-timing-config');
     }
 }
