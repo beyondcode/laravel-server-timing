@@ -60,7 +60,7 @@ You can also use the Server-Timing middleware to only set textual information wi
 ## Publishing configuration file
 
 The configuration file could be published using:
-`php artisan vendor:publish server-timing-config`
+`php artisan vendor:publish --tag=server-timing-config`
 
 You can disable the middleware changing the `timing.enabled` configuration to false.
 
