@@ -17,7 +17,7 @@ composer require beyondcode/laravel-server-timing
 
 ## Usage
 
-To add server-timing header information, you need to add the `BeyondCode\ServerTiming\Middleware\ServerTimingMiddleware` middleware to your HTTP Kernel.
+To add server-timing header information, you need to add the `\BeyondCode\ServerTiming\Middleware\ServerTimingMiddleware::class,` middleware to your HTTP Kernel.
 In order to get the most accurate results, put the middleware as the first one to load in the middleware stack.
 
 By default, the middleware measures only three things, to keep it as light-weight as possible:
