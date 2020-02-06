@@ -26,6 +26,10 @@ By default, the middleware measures only three things, to keep it as light-weigh
 - Application time (time to get a response within the app)
 - Total (total time before sending out the response)
 
+Once the package is successfully intstalled, you can see your timing information in the developer tools of your browser. Here's an example from Chrome:
+
+![image](https://user-images.githubusercontent.com/40676515/73973252-d831a980-48e7-11ea-88fc-a606fd5b758a.png)
+
 ## Adding additional measurements
 
 If you want to provide additional measurements, you can use the start and stop methods. If you do not explicitly stop a measured event, the event will automatically be stopped once the middleware receives your response. This can be useful if you want to measure the time your Blade views take to compile.
