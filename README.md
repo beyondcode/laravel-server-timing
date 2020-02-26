@@ -26,7 +26,7 @@ By default, the middleware measures only three things, to keep it as light-weigh
 - Application time (time to get a response within the app)
 - Total (total time before sending out the response)
 
-Once the package is successfully intstalled, you can see your timing information in the developer tools of your browser. Here's an example from Chrome:
+Once the package is successfully installed, you can see your timing information in the developer tools of your browser. Here's an example from Chrome:
 
 ![image](https://user-images.githubusercontent.com/40676515/73973252-d831a980-48e7-11ea-88fc-a606fd5b758a.png)
 
