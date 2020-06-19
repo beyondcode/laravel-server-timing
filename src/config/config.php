@@ -11,5 +11,5 @@ return [
     |
     */
 
-    'enabled' => true,
+    'enabled' => env('ENABLE_SERVER_TIMING', 'true') === 'true' ?? false,
 ];
