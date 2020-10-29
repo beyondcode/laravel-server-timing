@@ -39,6 +39,7 @@
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
+        "test-ci": "vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     },
     "config": {
