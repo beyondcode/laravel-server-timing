@@ -90,6 +90,11 @@ class ServerTiming
         return $this->finishedEvents[$key] ?? null;
     }
 
+    public function addMessage(string $key)
+    {
+        $this->setDuration($key, null);
+    }
+
     public function events(): array
     {
         return $this->finishedEvents;
