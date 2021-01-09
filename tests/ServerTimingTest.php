@@ -82,6 +82,19 @@ class ServerTimingTest extends TestCase
     }
 
     /** @test */
+    public function it_can_add_messages()
+    {
+        $timing = new ServerTiming(new Stopwatch());
+        $timing->addMessage('Custom Message');
+
+        $events = $timing->events();
+
+        $this->assertCount(1, $events);
+        $this->assertTrue(array_key_exists('Custom Message', $events));
+        $this->assertNull($events['Custom Message']);
+    }
+
+    /** @test */
     public function it_can_stop_started_events()
     {
         $timing = new ServerTiming(new Stopwatch());
