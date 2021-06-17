@@ -9,7 +9,7 @@ on:
 jobs:
     tests:
 
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-20.04
         strategy:
             fail-fast: false
             matrix:
@@ -31,7 +31,7 @@ jobs:
                   coverage: xdebug
 
             - name: Install dependencies
-              run: composer update --${{ matrix.stability }} --no-interaction --prefer-source
+              run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress
 
             - name: Run tests
               run: composer run test-ci
