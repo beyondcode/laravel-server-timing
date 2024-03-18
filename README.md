@@ -94,7 +94,7 @@ ServerTiming::addMetric('User: '.$user->id);
 The configuration file could be published using:
 `php artisan vendor:publish --tag=server-timing-config`
 
-You can disable the middleware changing the `timing.enabled` configuration to false.
+You can disable the middleware by changing the `timing.enabled` configuration to false or adding `SERVER_TIMING_ENABLED=false` to your `.env` file.
 
 ### Testing
 
