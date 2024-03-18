@@ -1,8 +1,6 @@
 # Laravel Server Timings
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/beyondcode/laravel-server-timing.svg?style=flat-square)](https://packagist.org/packages/beyondcode/laravel-server-timing)
-[![Build Status](https://img.shields.io/travis/beyondcode/laravel-server-timing/master.svg?style=flat-square)](https://travis-ci.org/beyondcode/laravel-server-timing)
-[![Quality Score](https://img.shields.io/scrutinizer/g/beyondcode/laravel-server-timing.svg?style=flat-square)](https://scrutinizer-ci.com/g/beyondcode/laravel-server-timing)
 [![Total Downloads](https://img.shields.io/packagist/dt/beyondcode/laravel-server-timing.svg?style=flat-square)](https://packagist.org/packages/beyondcode/laravel-server-timing)
 
 Add Server-Timing header information from within your Laravel apps.
@@ -20,6 +18,29 @@ composer require beyondcode/laravel-server-timing
 To add server-timing header information, you need to add the `\BeyondCode\ServerTiming\Middleware\ServerTimingMiddleware::class,` middleware to your HTTP Kernel.
 In order to get the most accurate results, put the middleware as the first one to load in the middleware stack.
 
+### Laravel 11
+`bootstrap/app.php`
+```php
+return Application::configure(basePath: dirname(__DIR__))
+    // ...
+    ->withMiddleware(function (Middleware $middleware) {
+        $middleware->prepend(\BeyondCode\ServerTiming\Middleware\ServerTimingMiddleware::class);
+    })
+    // ...
+    ->create();
+```
+
+### Laravel 10 and below
+`app/Http/Kernel.php`
+```php
+class Kernel extends HttpKernel
+{
+    protected $middleware = [
+        \BeyondCode\ServerTiming\Middleware\ServerTimingMiddleware::class,
+        // ...
+    ];
+```
+
 By default, the middleware measures only three things, to keep it as light-weight as possible:
 
 - Bootstrap (time before the middleware gets called)
@@ -35,9 +56,12 @@ Once the package is successfully installed, you can see your timing information 
 If you want to provide additional measurements, you can use the start and stop methods. If you do not explicitly stop a measured event, the event will automatically be stopped once the middleware receives your response. This can be useful if you want to measure the time your Blade views take to compile.
 
 ```php
+use BeyondCode\ServerTiming\Facades\ServerTiming;
+
 ServerTiming::start('Running expensive task');
 
-// do something
+// Take a nap
+sleep(5);
 
 ServerTiming::stop('Running expensive task');
 ```
