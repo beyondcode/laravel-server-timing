@@ -66,10 +66,10 @@ class ServerTimingMiddleware
         foreach ($this->timing->events() as $eventName => $duration) {
             $eventNameSlug = Str::slug($eventName);
 
-            $header .= "${eventNameSlug};desc=\"${eventName}\";";
+            $header .= "{$eventNameSlug};desc=\"{$eventName}\";";
 
             if (!is_null($duration)) {
-                $header .= "dur=${duration}";
+                $header .= "dur={$duration}";
             }
 
             $header .= ", ";
