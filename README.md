@@ -61,16 +61,16 @@ ServerTiming::setDuration('Running expensive task', function() {
 
 You can also use the Server-Timing middleware to only set textual information without providing a duration.
 
+```php
+ServerTiming::addMetric('User: '.$user->id);
+```
+
 ## Publishing configuration file
 
 The configuration file could be published using:
 `php artisan vendor:publish --tag=server-timing-config`
 
 You can disable the middleware changing the `timing.enabled` configuration to false.
-
-```php
-ServerTiming::addMetric('User: '.$user->id);
-```
 
 ### Testing
 
