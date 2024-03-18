@@ -41,6 +41,8 @@ class Kernel extends HttpKernel
     ];
 ```
 
+---
+
 By default, the middleware measures only three things, to keep it as light-weight as possible:
 
 - Bootstrap (time before the middleware gets called)
@@ -49,7 +51,7 @@ By default, the middleware measures only three things, to keep it as light-weigh
 
 Once the package is successfully installed, you can see your timing information in the developer tools of your browser. Here's an example from Chrome:
 
-![image](https://user-images.githubusercontent.com/40676515/73973252-d831a980-48e7-11ea-88fc-a606fd5b758a.png)
+![CleanShot 2024-03-18 at 13 48 53@2x](https://github.com/beyondcode/laravel-server-timing/assets/26432041/adea40e4-5c34-4aee-9fb7-ad6bac40addc)
 
 ## Adding additional measurements
 
@@ -65,6 +67,9 @@ sleep(5);
 
 ServerTiming::stop('Running expensive task');
 ```
+
+![CleanShot 2024-03-18 at 13 51 56@2x](https://github.com/beyondcode/laravel-server-timing/assets/26432041/47e9e692-2bce-4449-a7ea-966fa4701cdb)
+
 
 If you already know the exact time that you want to set as the measured time, you can use the `setDuration` method. The duration should be set as milliseconds:
 
