@@ -53,10 +53,11 @@ class ServerTimingMiddleware
 
     protected function getRequestStartTime()
     {
-        if (defined('LARAVEL_START')) {
+        if (!request()->server('LARAVEL_OCTANE') && defined('LARAVEL_START')) {
             return LARAVEL_START;
         }
-        return $_SERVER["REQUEST_TIME_FLOAT"] ?? microtime(true);
+
+        return request()->server('REQUEST_TIME_FLOAT') ?? microtime(true);
     }
 
     protected function generateHeaders(): string
